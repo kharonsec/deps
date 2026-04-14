@@ -1,26 +1,39 @@
-# deps
+# deps - Universal Dependency Analyzer
 
-Universal dependency analyzer. Works across Cargo, npm, and go mod.
+`deps` is a universal dependency analyzer that works across Cargo (Rust), npm (Node.js), and go mod (Go). It helps you list dependencies, visualize the dependency tree, and find out which packages depend on a specific dependency.
 
 ## Installation
 
+### One-liner (requires Rust/Cargo)
 ```bash
-cargo install --path .
+curl -fsSL https://raw.githubusercontent.com/kharonsec/deps/master/install.sh | bash
+```
+
+### Manual
+```bash
+git clone https://github.com/kharonsec/deps.git
+cd deps
+./install.sh
 ```
 
 ## Usage
 
+### List all dependencies
 ```bash
-deps [COMMAND]
+deps list
 ```
 
-### Commands:
-- `deps`: List all dependencies.
-- `deps why <pkg>`: Show what depends on a package.
-- `deps tree`: Show the full dependency tree.
-- `deps outdated`: Show what can be updated (stubbed).
-
-Example:
+### Find what depends on a package
 ```bash
-deps why clap
+deps why <package_name>
+```
+
+### Show the dependency tree
+```bash
+deps tree
+```
+
+### Check for outdated dependencies (stub)
+```bash
+deps outdated
 ```
